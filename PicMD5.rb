@@ -6,7 +6,7 @@ dir = ARGV[0]
 
 begin
 
-  db = SQLite3::Database.open "piclib_md5.db"
+  db = SQLite3::Database.open "db/piclib_md5.sqlite3"
 
   db.execute "CREATE TABLE IF NOT EXISTS piclib(digest STRING PRIMARY KEY,
       file_name STRING, directory_name STRING)"
