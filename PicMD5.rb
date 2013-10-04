@@ -10,7 +10,6 @@ begin
 
   db.execute "CREATE TABLE IF NOT EXISTS piclib(digest STRING PRIMARY KEY,
       file_name STRING, directory_name STRING)"
-  db.prepare("INSERT INTO piclib VALUES ( 'md5_hash', 'file_name', 'dir_name' )")
 
   Dir[ File.join(dir, '**', '*') ].each { |f|
     if File.file?(f)
@@ -28,3 +27,5 @@ begin
 ensure
   db.close if db
 end
+
+db.close
